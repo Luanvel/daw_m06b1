@@ -1,15 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ex2</title>
 </head>
+
 <body>
+    <main id="main">
+        <h1>Exercici 2</h1>
+    </main>
+
     <script>
-        // Escriu aquí el teu codi
-        
+
+        const percentatgeActivitat = 0.4;
+        const percentatgeExamen = 0.5;
+        const percentatgePortafolis = 0.1;
+
+        const notaMin = 4;
+        const pondFinalMin = 5;
+
+        const validarInputNum = (input) => {
+            const numbers = /^[0-9]+$/;
+            return (input.match(numbers));
+        }
+
+        const calcularMitjana = (notaActivitats, notaExamen, notaPortafolis) => {
+            return (notaActivitats * percentatgeActivitat + notaExamen * percentatgeExamen + notaPortafolis * percentatgePortafolis).toFixed(2);
+        }
+
+        const valorarApteAssignatura = (notaMitjana) => {
+            return (notaMitjana >= pondFinalMin);
+        }
+
+        const valorarApteTasques = (nota) => {
+            return (nota >= notaMin);
+        }
+
+        const valorarApte = (notaMitjana, notaActivitats, notaExamen, notaPortafolis) => {
+            return (valorarApteAssignatura(notaMitjana) && valorarApteTasques(notaActivitats) && valorarApteTasques(notaExamen) && valorarApteTasques(notaPortafolis))
+        }
+
+        const mostrarNotes = (notaActivitats, notaExamen, notaPortafolis) => {
+
+            const notaMitjana = calcularMitjana(notaActivitats, notaExamen, notaPortafolis);
+            const main = document.querySelector("#main");
+
+            const p1 = document.createElement("p");
+            p1.textContent = valorarApte(notaMitjana, notaActivitats, notaExamen, notaPortafolis) ? "L'alumne/a és: APTE"
+                : "L'alumne/a és: NO APTE";
+            main.appendChild(p1);
+
+            const p2 = document.createElement("p");
+            p2.textContent = `La nota de les activitats és: ${notaActivitats}`
+            main.appendChild(p2);
+
+            const p3 = document.createElement("p");
+            p3.textContent = `La nota de l'examen és: ${notaExamen}`
+            main.appendChild(p3);
+
+            const p4 = document.createElement("p");
+            p4.textContent =
+                `La nota del portafolis és: ${notaPortafolis}`
+            main.appendChild(p4);
+
+            const p5 = document.createElement("p");
+            p5.textContent = valorarApte(notaMitjana, notaActivitats, notaExamen, notaPortafolis) ? `La nota mitjana és: ${notaMitjana}`
+                : `No s'ha pogut calcular la nota mitjana perquè l'alumne no ha arribat als mínims`;
+            main.appendChild(p5);
+        }
+
+        let notaActivitats = null;
+        while (notaActivitats == null && notaActivitats <= 10 && notaActivitats >= 0) {
+            const input1 = prompt("Introdueix la nota de les activitats (0-10)");
+            if (validarInputNum(input1)) {
+                notaActivitats = input1;
+                console.log(input1)
+            }
+        }
+
+        let notaExamen = null;
+        while (notaExamen == null && notaExamen <= 10 && notaExamen >= 0) {
+            const input2 = prompt("Introdueix la nota de l'examen (0-10)");
+            if (validarInputNum(input2)) {
+                notaExamen = input2;
+                console.log(input2)
+            }
+        }
+
+        let notaPortafolis = null;
+        while (notaPortafolis == null && notaPortafolis <= 10 && notaPortafolis >= 0) {
+            const input3 = prompt("Introdueix la nota del portafolis (0-10)");
+            if (validarInputNum(input3)) {
+                notaPortafolis = input3;
+                console.log(input3)
+            }
+        }
+
+        mostrarNotes(notaActivitats, notaExamen, notaPortafolis); 7
 
     </script>
 </body>
+
 </html>
