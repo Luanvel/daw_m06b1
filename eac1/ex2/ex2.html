@@ -13,7 +13,6 @@
     </main>
 
     <script>
-
         const percentatgeActivitat = 0.4;
         const percentatgeExamen = 0.5;
         const percentatgePortafolis = 0.1;
@@ -22,8 +21,7 @@
         const pondFinalMin = 5;
 
         const validarInputNum = (input) => {
-            const numbers = /^[0-9]+$/;
-            return (input.match(numbers));
+            return !(input === null || isNaN(input) || input > 10 || input < 0)
         }
 
         const calcularMitjana = (notaActivitats, notaExamen, notaPortafolis) => {
@@ -40,6 +38,30 @@
 
         const valorarApte = (notaMitjana, notaActivitats, notaExamen, notaPortafolis) => {
             return (valorarApteAssignatura(notaMitjana) && valorarApteTasques(notaActivitats) && valorarApteTasques(notaExamen) && valorarApteTasques(notaPortafolis))
+        }
+
+        let notaActivitats = null;
+        let input1 = null;
+        while (!validarInputNum(input1)) {
+            input1 = prompt("Introdueix la nota de les activitats (0-10)");
+            notaActivitats = input1;
+            console.log(input1);
+        }
+
+        let notaExamen = null;
+        let input2 = null;
+        while (!validarInputNum(input2)) {
+            input2 = prompt("Introdueix la nota de l'examen (0-10)");
+            notaExamen = input2;
+            console.log(input2);
+        }
+
+        let notaPortafolis = null;
+        let input3 = null;
+        while (!validarInputNum(input3)) {
+            input3 = prompt("Introdueix la nota del portafolis (0-10)");
+            notaPortafolis = input3;
+            console.log(input3);
         }
 
         const mostrarNotes = (notaActivitats, notaExamen, notaPortafolis) => {
@@ -69,33 +91,6 @@
             p5.textContent = valorarApte(notaMitjana, notaActivitats, notaExamen, notaPortafolis) ? `La nota mitjana és: ${notaMitjana}`
                 : `No s'ha pogut calcular la nota mitjana perquè l'alumne no ha arribat als mínims`;
             main.appendChild(p5);
-        }
-
-        let notaActivitats = null;
-        while (notaActivitats == null && notaActivitats <= 10 && notaActivitats >= 0) {
-            const input1 = prompt("Introdueix la nota de les activitats (0-10)");
-            if (validarInputNum(input1)) {
-                notaActivitats = input1;
-                console.log(input1);
-            }
-        }
-
-        let notaExamen = null;
-        while (notaExamen == null && notaExamen <= 10 && notaExamen >= 0) {
-            const input2 = prompt("Introdueix la nota de l'examen (0-10)");
-            if (validarInputNum(input2)) {
-                notaExamen = input2;
-                console.log(input2);
-            }
-        }
-
-        let notaPortafolis = null;
-        while (notaPortafolis == null && notaPortafolis <= 10 && notaPortafolis >= 0) {
-            const input3 = prompt("Introdueix la nota del portafolis (0-10)");
-            if (validarInputNum(input3)) {
-                notaPortafolis = input3;
-                console.log(input3);
-            }
         }
 
         mostrarNotes(notaActivitats, notaExamen, notaPortafolis);
