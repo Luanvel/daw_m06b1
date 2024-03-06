@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,17 +12,60 @@
             top: 50%;
             transform: translate(-50%, -50%);
         }
+
         #comptador {
             font-size: 10em;
             text-align: center;
         }
     </style>
 </head>
+
 <body>
     <div id="comptador"></div>
     <script>
-        // Escriu aquí el teu codi
+
+        //Funció per crear les finestres filles i assignar a cada una un color random amb la funció declarada més endavant
+        const crearFinestresFilles = () => {
+            const finestraFilla1 = window.open("about:blank", "TopLeft", "top=0,left=-1920,width=200,height=200");
+            finestraFilla1.document.body.style.backgroundColor = randomColor();
+            const finestraFilla2 = window.open("about:blank", "TopRight", "top=0,left=1920,width=200,height=200");
+            finestraFilla2.document.body.style.backgroundColor = randomColor();
+            const finestraFilla3 = window.open("about:blank", "BottomLeft", "top=1000,left=-1920,width=200,height=200");
+            finestraFilla3.document.body.style.backgroundColor = randomColor();
+            const finestraFilla4 = window.open("about:blank", "BottomRight", "top=1000,left=1920,width=200,height=200");
+            finestraFilla4.document.body.style.backgroundColor = randomColor();
+        }
+
+        //Funció per crear un color aleatori i retornar-lo
+        const randomColor = () => {
+            let color = `rgb(` + (Math.floor(Math.random() * 256)) + `,` + (
+                Math.floor(Math.random() * 256)) + `,` + (Math.floor(Math.
+                    random() * 256)) + `)`;
+            return color;
+        }
+
+        //Funció per aplicar un temporitzador amb el compte enrere
+        const temporitzador = () => {
+            //El compte enrere comença per 5
+            let comptador = 5;
+
+            //Fem un interval que cada segon refresqui el contingut de #comptador descendentment
+            const id = setInterval(() => {
+                document.querySelector("#comptador").textContent = comptador;
+                comptador--;
+                //Quan arribi a 0, es crearan les finestres filles i pararà l'interval (sino continuaria fent el compte enrere infinitament)
+                if (comptador < 0) {
+                    clearInterval(id);
+                    crearFinestresFilles();
+                }
+            }, 1000);
+        }
+
+        //Activem la funció temporitzador
+        temporitzador();
+
     </script>
-    
+
 </body>
+
 </html>
