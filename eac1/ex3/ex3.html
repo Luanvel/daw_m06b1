@@ -8,8 +8,54 @@
 </head>
 
 <body>
+    <main></main>
+
     <script>
-       // Escriu aquí el teu codi
+        //** Primer prompt per saber quantes notes introduir
+        let numNotes = NaN;
+        while (isNaN(numNotes)) {
+            numNotes = prompt("Quantes notes vols introduir?");
+        }
+
+        //** Segon prompt per fer un array amb les notes introduides
+        const notes = [];
+        for (let i = 0; i < numNotes; i++) {
+            let nota = NaN;
+            while (isNaN(nota) || nota < 0 || nota > 10) {
+                nota = prompt(`Introdueix la nota ${i + 1}`);
+            }
+            notes.push(+nota);
+        }
+
+        //** Càlcul de la nota mitjana
+        const notaMitjana = (notes.reduce((notaPre, notaPost) => (notaPre + notaPost)) / notes.length).toFixed(2);
+
+        //** Append a main de la frase informativa de la nota mitjana
+        //Creem el p i el span que anirà a l'interior del p
+        const resultat = document.createElement("p");
+        const notaSpan = document.createElement("span");
+
+        //Emplenem el contingut d'ambdos elements i fem append
+        notaSpan.textContent = notaMitjana;
+        resultat.textContent = "La mitjana de les notes és ";
+        resultat.appendChild(notaSpan);
+
+        const main = document.querySelector("main");
+        main.appendChild(resultat);
+
+        //** Selecció de la nota per modificar el color
+        const notaMostrada = document.querySelector("span");
+
+        if (notaMostrada.textContent >= 0 && notaMostrada.textContent < 5) {
+            notaMostrada.style.color = "red";
+        } else if (notaMostrada.textContent >= 5 && notaMostrada.textContent < 7) {
+            notaMostrada.style.color = "blue";
+        } else if (notaMostrada.textContent >= 7 && notaMostrada.textContent <= 9) {
+            notaMostrada.style.color = "green";
+        } else {
+            notaMostrada.style.color = "yellow";
+            notaMostrada.style.backgroundColor = "#373738";
+        }
 
     </script>
 </body>
