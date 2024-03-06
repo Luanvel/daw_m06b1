@@ -14,7 +14,38 @@
 
     <script>
         function diaDeLaSetmana() {
-            // Escriu aquí el teu codi
+            const input = document.querySelector("input").value; //usar value no textContent
+            dateRegex = /^(0?[1-9]|[12][0-9]|3[01])[\/](0?[1-9]|1[012])[\/]\d{4}$/;
+            if (!dateRegex.test(input)) {
+                alert("El format de la data no compleix el requisit de dd/mm/yyyy");
+                return;
+            }
+
+            const arrayData = input.split("/");
+            const day = arrayData[0];
+            const month = arrayData[1];
+            const year = arrayData[2];
+
+            const date = new Date(year, month - 1, day); //els mesos a Javascript van del 0 a l'11
+            const dayOfWeek = date.getDay(); //Retorna un numero del 0 al 6
+
+            switch (dayOfWeek) {
+                case 0: alert("Diumenge");
+                    break;
+                case 1: alert("Dilluns");
+                    break;
+                case 2: alert("Dimarts");
+                    break;
+                case 3: alert("Dimecres");
+                    break;
+                case 4: alert("Dijous");
+                    break;
+                case 5: alert("Divendres");
+                    break;
+                case 6: alert("Dissabte");
+                    break;
+                default: alert("Aquest dia no existeix!");
+            }
         }
 
     </script>
