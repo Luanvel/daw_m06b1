@@ -13,6 +13,7 @@
     </main>
 
     <script>
+        //Declarem les constants a utilitzar
         const percentatgeActivitat = 0.4;
         const percentatgeExamen = 0.5;
         const percentatgePortafolis = 0.1;
@@ -20,26 +21,33 @@
         const notaMin = 4;
         const pondFinalMin = 5;
 
+        //Funció per validar l'input
         const validarInputNum = (input) => {
             return !(input === null || isNaN(input) || input > 10 || input < 0)
         }
 
+        //Funció per calcular la mitjana de les notes
         const calcularMitjana = (notaActivitats, notaExamen, notaPortafolis) => {
             return (notaActivitats * percentatgeActivitat + notaExamen * percentatgeExamen + notaPortafolis * percentatgePortafolis).toFixed(2);
         }
 
+        //Funció per saber si la nota mitjana de tota l'assignatura supera el 5
         const valorarApteAssignatura = (notaMitjana) => {
             return (notaMitjana >= pondFinalMin);
         }
 
+        //Funció per saber si les diferents tasques (activitat, examen i portafolis) superen el 4
         const valorarApteTasques = (nota) => {
             return (nota >= notaMin);
         }
 
+        //Funció per valorar alhora si totes les notes superen el 4 i també si la mitjana supera el 5
         const valorarApte = (notaMitjana, notaActivitats, notaExamen, notaPortafolis) => {
             return (valorarApteAssignatura(notaMitjana) && valorarApteTasques(notaActivitats) && valorarApteTasques(notaExamen) && valorarApteTasques(notaPortafolis))
         }
 
+        //Bucles per repetir el prompt fins que el valor introduit sigui correcte
+        //Si tot està ok, es guarden els valors corresponents a les variables
         let notaActivitats = null;
         let input1 = null;
         while (!validarInputNum(input1)) {
@@ -64,11 +72,18 @@
             console.log(input3);
         }
 
+        //Funció per mostrar les notes al DOM
         const mostrarNotes = (notaActivitats, notaExamen, notaPortafolis) => {
 
+            //Calculem la nota mitjana i la guardem a una variable
             const notaMitjana = calcularMitjana(notaActivitats, notaExamen, notaPortafolis);
+
+            //Seleccionem el main on volem posar tots els p amb la informació corresponent
             const main = document.querySelector("#main");
 
+            //En cada cas, crearem un element p, mirarem si és apte o no i farem un append a main del nou p
+            //En alguns casos, utilitzarem un ternari per mostrar un missatge o un altre segons si l'alumne/a és APTE (true)
+            //o si no ho és (False) i si és calcula la nota o no (true o false respectivament també)
             const p1 = document.createElement("p");
             p1.textContent = valorarApte(notaMitjana, notaActivitats, notaExamen, notaPortafolis) ? "L'alumne/a és: APTE"
                 : "L'alumne/a és: NO APTE";
@@ -93,6 +108,7 @@
             main.appendChild(p5);
         }
 
+        //Mostrem les notes amb els valors que s'han introduit cridant a la funció
         mostrarNotes(notaActivitats, notaExamen, notaPortafolis);
 
     </script>
