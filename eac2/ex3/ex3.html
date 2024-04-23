@@ -1,13 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercici 3</title>
+
+    <style>
+        table {
+            border: #b2b2b2 1px solid;
+        }
+
+        td,
+        th {
+            border: black 1px solid;
+            text-align: center;
+            padding: 0.5em;
+        }
+    </style>
 </head>
+
 <body>
+
+    <main>
+        <table id="temperatureTable">
+            <thead>
+                <tr>
+                    <th>Día</th>
+                    <th>Temperatura</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <br>
+
+        <p id="mitjana"></p>
+        <p id="minima"></p>
+        <p id="maxima"></p>
+
+    </main>
+
     <script>
-       // Escriu aquí el teu codi...
+
+        //Declarem array per emmagatzemar les temperatures
+        let temperatures = [];
+
+        //Validadors
+        const validarInputNum = (input) => {
+            return (input !== null && !isNaN(input) && input > 0)
+        }
+
+        const validarInputNumEnter = (input) => {
+            return (input !== null && !isNaN(input) && input > 0 && Number.isInteger(+input))
+        }
+
+        //Funció per obtenir la data en el format adequat de dies anteriors
+        const obtainDate = (daysAgo) => {
+            let date = new Date();
+            date.setDate(date.getDate() - daysAgo);
+            return date.toLocaleDateString("es-ES");
+        }
+
+        //Prompt per introduir quants dies anteriors a la data actual es volen mirar
+        let daysSinceToday = null;
+        let input = null;
+        while (!validarInputNumEnter(input)) {
+            input = prompt("Introdueix el nombre de dies anteriors a la data actual");
+            daysSinceToday = +input;
+            console.log(daysSinceToday);
+        }
+
+        //Prompt per Introduir les temperatures per cada dia anterior seleccionat
+        for (let i = daysSinceToday; i > 0; i--) {
+            let temperature = null;
+            const pastDate = obtainDate(i);
+
+            while (!validarInputNum(temperature)) {
+                temperature = +prompt(`Introdueix la temperatura mitjana del dia ${pastDate}`);
+            }
+
+            temperatures.push({ date: pastDate, temperature: temperature });
+        }
+
+        console.log(temperatures);
+
+        //Construcció de la taula amb els objectes de l'array tables
+        const table = document.querySelector("#temperatureTable tbody");
+
+        temperatures.forEach((temperature) => {
+            const row = document.createElement("tr");
+
+            const dayData = document.createElement("td");
+            dayData.textContent = temperature.date;
+            row.appendChild(dayData);
+
+            const temperatureData = document.createElement("td");
+            temperatureData.textContent = temperature.temperature;
+            row.appendChild(temperatureData);
+
+            table.appendChild(row);
+        })
+
+
+        //Creem un array amb map per tenir només les temperatures
+        const onlyTempArray = temperatures.map((temperature) => temperature.temperature);
+
+        //Calcular temperatura mitjana i introduir-ho al p corresponent
+        const averageTemp = (onlyTempArray.reduce((a, b) => a + b, 0) / temperatures.length).toFixed(2);
+        pMitjana = document.querySelector("#mitjana");
+        pMitjana.textContent = `La temperatura mitjana és ${averageTemp}`;
+
+        //Calcular temperatura mitjana i introduir-ho al p corresponent
+        const minTemp = Math.min(...onlyTempArray);
+        pMinima = document.querySelector("#minima");
+        pMinima.textContent = `La temperatura mínima és ${minTemp}`;
+
+        //Calcular temperatura mitjana i introduir-ho al p corresponent
+        const maxTemp = Math.max(...onlyTempArray);
+        pMaxima = document.querySelector("#maxima");
+        pMaxima.textContent = `La temperatura màxima és ${maxTemp}`;
+
     </script>
+
 </body>
+
 </html>
