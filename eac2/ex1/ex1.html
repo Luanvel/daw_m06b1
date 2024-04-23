@@ -11,14 +11,15 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            
+
         }
 
         * {
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        select, div {
+        select,
+        div {
             font-size: 1.5em;
         }
 
@@ -37,9 +38,22 @@
     <script>
         function mostrar() {
             // Modifica la següent sentència d'exemple per adaptar-la als requisits de l'enunciat
-            document.getElementById("resposta").innerText = document.getElementById("pobles").value;
+            const originalName = document.getElementById("pobles").value.toUpperCase();
 
-            
+            //Ordenar els noms amb article
+            const nameSplit = originalName.split(", ");
+            const name = nameSplit[0];
+            const article = nameSplit[1] ? nameSplit[1] + " " : "";
+            const orderedName = `${article}${name}`;
+
+            //Mostrar el nom del poble i la quantitat de lletres que conté
+            document.getElementById("resposta1").innerText = `El poble ${orderedName} té ${nameSplit[0].replace(" ", "").length} lletres`;
+
+            //Mostrar el nom del poble a la inversa
+            document.getElementById("resposta2").innerText = `El nom del poble a l'inrevés és ${orderedName.split("").reverse().join("")}`;
+
+            //Mostrar el nom del poble separat amb *
+            document.getElementById("resposta3").innerText = `El nom del poble separat per asteriscs quedaria així: ${orderedName.replace(" ", "").split("").join("*")}`;
         }
     </script>
 
@@ -993,7 +1007,9 @@
         <option>Viver i Serrateix</option>
         <option>Xerta</option>
     </select>
-    <div id="resposta"></div>
+    <div id="resposta1"></div>
+    <div id="resposta2"></div>
+    <div id="resposta3"></div>
 </body>
 
 </html>
