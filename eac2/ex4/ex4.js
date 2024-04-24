@@ -16,4 +16,23 @@ let cites = {
     ]
 };
 
-// Escriu aquí el teu codi...
+const randomPhrase = (quoteArray) => {
+    const randomQuotePosition = Math.floor((Math.random()) * quoteArray.length);
+    return quoteArray[randomQuotePosition];
+}
+
+const showPhrases = () => {
+    const randomQuoteCat = randomPhrase(cites.cat);
+    console.log(randomQuoteCat.frase);
+    console.log(randomQuoteCat.autor);
+
+    const randomQuoteEsp = randomPhrase(cites.esp);
+    console.log(randomQuoteEsp.frase);
+    console.log(randomQuoteEsp.autor);
+
+    const randomQuoteEng = randomPhrase(cites.eng);
+    console.log(randomQuoteEng.frase);
+    console.log(randomQuoteEng.autor);
+}
+
+showPhrases();

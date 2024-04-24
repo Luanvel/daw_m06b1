@@ -46,7 +46,7 @@ const famousQuotes = [
 ];
 
 //Escollir número aleatoriament
-randomNum = Math.floor(Math.random() * famousQuotes.length);
+const randomNum = Math.floor(Math.random() * famousQuotes.length);
 
 console.log(famousQuotes[randomNum].quote);
 console.log(famousQuotes[randomNum].author);
