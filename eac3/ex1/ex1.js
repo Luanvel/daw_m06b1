@@ -23,12 +23,56 @@ let inventari = {
 		}
 	],
 
-	// Escriu aquí el teu codi
+	prestar: (idCopia, dataPrestec) => {
+		for (let llibre of inventari.llibres) {
+			if (llibre.copies.includes(idCopia)) {
+				llibre.prestecs.push({ idCopia: idCopia, dataPretec: dataPrestec })
+				return true;
+			} else {
+				return false
+			}
+		}
+	},
 
+	ultimaOperacio: () => {
+		let ultimPrestec = {};
+		inventari.llibres.forEach((llibre) => {
 
-	
+			let ultimPrestecLlibre = llibre.prestecs[llibre.prestecs.length - 1];
+			if (ultimPrestec.dataPrestec == {} || ultimPrestecLlibre.dataPrestec > ultimPrestec.dataPrestec) {
+				ultimPrestec = {
+					titol: llibre.titol,
+					idCopia: ultimPrestecLlibre.idCopia,
+					dataPrestec: ultimPrestecLlibre.dataPrestec
+				};
+			}
+		});
+		return ultimPrestec;
+	},
+
+	quantitatTotalLlibres: () => {
+		return inventari.llibres.length;
+	},
+
+	afegirLlibre: (isbn, titol, autor, copies) => {
+
+		for (let llibre of inventari.llibres) {
+			if (llibre.isbn === isbn || llibre.copies.includes(copies)) {
+				return false;
+			}
+		}
+
+		inventari.llibres.push({
+			isbn: isbn,
+			titol: titol,
+			autor: autor,
+			copies: copies,
+			prestecs: []
+		});
+
+		return true;
+	}
 };
-
 
 // No canviïs aquesta línia de codi. Serveix perquè les funcions d'aquest fitxer es puguin usar en el fitxer de tests.
 module.exports = { inventari };
