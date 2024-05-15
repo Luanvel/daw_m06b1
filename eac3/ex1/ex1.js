@@ -22,6 +22,8 @@ let inventari = {
   ],
 
   prestar: (idCopia, dataPrestec) => {
+    //Per cada llibre, mirarem si copies inclou la id de la copia del llibre a prestar
+    //Si es així, s'inclourà a l'array de prestecs.
     for (let llibre of inventari.llibres) {
       if (llibre.copies.includes(idCopia)) {
         llibre.prestecs.push({ idCopia: idCopia, dataPretec: dataPrestec });
@@ -32,10 +34,15 @@ let inventari = {
   },
 
   ultimaOperacio: () => {
+    //Definim un objecte per incloure el possible "nou" ultim prestec
     let ultimPrestec = {};
+    //Per cada llibre de l'array de llibres
     inventari.llibres.forEach((llibre) => {
+      //definim una variable per saber quin és l'últim llibre prestat a l'array
       let ultimPrestecLlibre = llibre.prestecs[llibre.prestecs.length - 1];
       if (
+        //Si la data de l'ultim prestec és null o la data de l'últim prèstec és anterior al nou prèstec
+        //Guardarem la informació de les noves dades de l'ultim llibre que es prestarà al nou objecte.
         ultimPrestec.dataPrestec == null ||
         ultimPrestecLlibre.dataPrestec > ultimPrestec.dataPrestec
       ) {
@@ -49,10 +56,13 @@ let inventari = {
     return ultimPrestec;
   },
 
+  //Es mira la quantitat total de llibres registrats
   quantitatTotalLlibres: () => {
     return inventari.llibres.length;
   },
 
+  //Afegir un llibre (i retornar true) en cas que no coincideixi ni l'isbn ni inclogui la copia passada com a valor.
+  //Includes només funciona si es una string, per tant s'ha d'afegir aquest mètode o donava error.
   afegirLlibre: (isbn, titol, autor, copies) => {
     for (let llibre of inventari.llibres) {
       if (llibre.isbn === isbn || llibre.copies.includes(copies.toString())) {
