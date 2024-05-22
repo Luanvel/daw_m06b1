@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex1</title>
+    <style>
+        body {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            
+        }
+
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        select, div {
+            font-size: 1.5em;
+        }
+
+        #pobles {
+            border: solid #60aad1;
+            padding: 1%;
+        }
+
+        #resposta {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function mostrar() {
+            // Modifica la següent sentència d'exemple per adaptar-la als requisits de l'enunciat
+            document.getElementById("resposta").innerText = document.getElementById("pobles").value;
+
+            let pobleSeparat = document.getElementById("pobles").value.split(",");
+            let pobleBenEscrit;
+            let numLletres;
+            let pobleInreves;
+
+            if (pobleSeparat.length > 1) {
+                pobleBenEscrit = `${pobleSeparat[1]} ${pobleSeparat[0]}`;
+            } else {
+                pobleBenEscrit = `${pobleSeparat[0]}`;
+            }
+            pobleBenEscrit = pobleBenEscrit.toUpperCase();
+            numLletres = pobleSeparat[0].replace(/\s+/g, '').length;
+            pobleInreves = pobleBenEscrit.split("").reverse().join("");
+
+            document.getElementById("resposta").innerHTML = `El poble ${pobleBenEscrit} té ${numLletres} lletres.<br/>El nom del poble a l'inrevés és ${pobleInreves}.<br/>El nom del poble separat per asteriscs quedaria així: ${pobleBenEscrit.split(" ").join("").split("").join("*")}.`;
+        }
+    </script>
+
+    <select name="pobles" id="pobles" onchange="mostrar()">
+        <option>Abella de la Conca</option>
+        <option>Abrera</option>
+        <option>Àger</option>
+        <option>Agramunt</option>
+        <option>Aguilar de Segarra</option>
+        <option>Agullana</option>
+        <option>Aiguafreda</option>
+        <option>Aiguamúrcia</option>
+        <option>Aiguaviva</option>
+        <option>Aitona</option>
+        <option>Alamús, els</option>
+        <option>Alàs i Cerc</option>
+        <option>Albagés, l'</option>
+        <option>Albanyà</option>
+        <option>Albatàrrec</option>
+        <option>Albesa</option>
+        <option>Albi, l'</option>
+        <option>Albinyana</option>
+        <option>Albiol, l'</option>
+        <option>Albons</option>
+        <option>Alcanar</option>
+        <option>Alcanó</option>
+        <option>Alcarràs</option>
+        <option>Alcoletge</option>
+        <option>Alcover</option>
+        <option>Aldea, l'</option>
+        <option>Aldover</option>
+        <option>Aleixar, l'</option>
+        <option>Alella</option>
+        <option>Alfara de Carles</option>
+        <option>Alfarràs</option>
+        <option>Alfés</option>
+        <option>Alforja</option>
+        <option>Algerri</option>
+        <option>Alguaire</option>
+        <option>Alins</option>
+        <option>Alió</option>
+        <option>Almacelles</option>
+        <option>Almatret</option>
+        <option>Almenar</option>
+        <option>Almoster</option>
+        <option>Alòs de Balaguer</option>
+        <option>Alp</option>
+        <option>Alpens</option>
+        <option>Alpicat</option>
+        <option>Alt Àneu</option>
+        <option>Altafulla</option>
+        <option>Amer</option>
+        <option>Ametlla de Mar, l'</option>
+        <option>Ametlla del Vallès, l'</option>
+        <option>Ampolla, l'</option>
+        <option>Amposta</option>
+        <option>Anglès</option>
+        <option>Anglesola</option>
+        <option>Arbeca</option>
+        <option>Arboç, l'</option>
+        <option>Arbolí</option>
+        <option>Arbúcies</option>
+        <option>Arenys de Mar</option>
+        <option>Arenys de Munt</option>
+        <option>Argelaguer</option>
+        <option>Argençola</option>
+        <option>Argentera, l'</option>
+        <option>Argentona</option>
+        <option>Armentera, l'</option>
+        <option>Arnes</option>
+        <option>Arres</option>
+        <option>Arsèguel</option>
+        <option>Artés</option>
+        <option>Artesa de Lleida</option>
+        <option>Artesa de Segre</option>
+        <option>Ascó</option>
+        <option>Aspa</option>
+        <option>Avellanes i Santa Linya, les</option>
+        <option>Avià</option>
+        <option>Avinyó</option>
+        <option>Avinyonet de Puigventós</option>
+        <option>Avinyonet del Penedès</option>
+        <option>Badalona</option>
+        <option>Badia del Vallès</option>
+        <option>Bagà</option>
+        <option>Baix Pallars</option>
+        <option>Balaguer</option>
+        <option>Balenyà</option>
+        <option>Balsareny</option>
+        <option>Banyeres del Penedès</option>
+        <option>Banyoles</option>
+        <option>Barbens</option>
+        <option>Barberà de la Conca</option>
+        <option>Barberà del Vallès</option>
+        <option>Barcelona</option>
+        <option>Baronia de Rialb, la</option>
+        <option>Bàscara</option>
+        <option>Bassella</option>
+        <option>Batea</option>
+        <option>Bausen</option>
+        <option>Begues</option>
+        <option>Begur</option>
+        <option>Belianes</option>
+        <option>Bellaguarda</option>
+        <option>Bellcaire d'Empordà</option>
+        <option>Bellcaire d'Urgell</option>
+        <option>Bell-lloc d'Urgell</option>
+        <option>Bellmunt del Priorat</option>
+        <option>Bellmunt d'Urgell</option>
+        <option>Bellprat</option>
+        <option>Bellpuig</option>
+        <option>Bellvei</option>
+        <option>Bellver de Cerdanya</option>
+        <option>Bellvís</option>
+        <option>Benavent de Segrià</option>
+        <option>Benifallet</option>
+        <option>Benissanet</option>
+        <option>Berga</option>
+        <option>Besalú</option>
+        <option>Bescanó</option>
+        <option>Beuda</option>
+        <option>Bigues i Riells del Fai</option>
+        <option>Biosca</option>
+        <option>Bisbal de Falset, la</option>
+        <option>Bisbal del Penedès, la</option>
+        <option>Bisbal d'Empordà, la</option>
+        <option>Biure</option>
+        <option>Blancafort</option>
+        <option>Blanes</option>
+        <option>Boadella i les Escaules</option>
+        <option>Bolvir</option>
+        <option>Bonastre</option>
+        <option>Bòrdes, Es</option>
+        <option>Bordils</option>
+        <option>Borges Blanques, les</option>
+        <option>Borges del Camp, les</option>
+        <option>Borrassà</option>
+        <option>Borredà</option>
+        <option>Bossòst</option>
+        <option>Bot</option>
+        <option>Botarell</option>
+        <option>Bovera</option>
+        <option>Bràfim</option>
+        <option>Breda</option>
+        <option>Bruc, el</option>
+        <option>Brull, el</option>
+        <option>Brunyola i Sant Martí Sapresa</option>
+        <option>Cabacés</option>
+        <option>Cabanabona</option>
+        <option>Cabanelles</option>
+        <option>Cabanes</option>
+        <option>Cabanyes, les</option>
+        <option>Cabó</option>
+        <option>Cabra del Camp</option>
+        <option>Cabrera d'Anoia</option>
+        <option>Cabrera de Mar</option>
+        <option>Cabrils</option>
+        <option>Cadaqués</option>
+        <option>Calaf</option>
+        <option>Calafell</option>
+        <option>Calders</option>
+        <option>Caldes de Malavella</option>
+        <option>Caldes de Montbui</option>
+        <option>Caldes d'Estrac</option>
+        <option>Calella</option>
+        <option>Calldetenes</option>
+        <option>Callús</option>
+        <option>Calonge de Segarra</option>
+        <option>Calonge i Sant Antoni</option>
+        <option>Camarasa</option>
+        <option>Camarles</option>
+        <option>Cambrils</option>
+        <option>Camós</option>
+        <option>Campdevànol</option>
+        <option>Campelles</option>
+        <option>Campins</option>
+        <option>Campllong</option>
+        <option>Camprodon</option>
+        <option>Canejan</option>
+        <option>Canet d'Adri</option>
+        <option>Canet de Mar</option>
+        <option>Canonja, la</option>
+        <option>Canovelles</option>
+        <option>Cànoves i Samalús</option>
+        <option>Cantallops</option>
+        <option>Canyelles</option>
+        <option>Capafonts</option>
+        <option>Capçanes</option>
+        <option>Capellades</option>
+        <option>Capmany</option>
+        <option>Capolat</option>
+        <option>Cardedeu</option>
+        <option>Cardona</option>
+        <option>Carme</option>
+        <option>Caseres</option>
+        <option>Cassà de la Selva</option>
+        <option>Casserres</option>
+        <option>Castell de l'Areny</option>
+        <option>Castell de Mur</option>
+        <option>Castellar de la Ribera</option>
+        <option>Castellar de n'Hug</option>
+        <option>Castellar del Riu</option>
+        <option>Castellar del Vallès</option>
+        <option>Castellbell i el Vilar</option>
+        <option>Castellbisbal</option>
+        <option>Castellcir</option>
+        <option>Castelldans</option>
+        <option>Castelldefels</option>
+        <option>Castellet i la Gornal</option>
+        <option>Castellfollit de la Roca</option>
+        <option>Castellfollit de Riubregós</option>
+        <option>Castellfollit del Boix</option>
+        <option>Castellgalí</option>
+        <option>Castellnou de Bages</option>
+        <option>Castellnou de Seana</option>
+        <option>Castelló de Farfanya</option>
+        <option>Castelló d'Empúries</option>
+        <option>Castellolí</option>
+        <option>Castell-Platja d'Aro</option>
+        <option>Castellserà</option>
+        <option>Castellterçol</option>
+        <option>Castellvell del Camp</option>
+        <option>Castellví de la Marca</option>
+        <option>Castellví de Rosanes</option>
+        <option>Catllar, el</option>
+        <option>Cava</option>
+        <option>Cellera de Ter, la</option>
+        <option>Celrà</option>
+        <option>Centelles</option>
+        <option>Cercs</option>
+        <option>Cerdanyola del Vallès</option>
+        <option>Cervelló</option>
+        <option>Cervera</option>
+        <option>Cervià de les Garrigues</option>
+        <option>Cervià de Ter</option>
+        <option>Cistella</option>
+        <option>Ciutadilla</option>
+        <option>Clariana de Cardener</option>
+        <option>Cogul, el</option>
+        <option>Colera</option>
+        <option>Coll de Nargó</option>
+        <option>Collbató</option>
+        <option>Colldejou</option>
+        <option>Collsuspina</option>
+        <option>Colomers</option>
+        <option>Coma i la Pedra, la</option>
+        <option>Conca de Dalt</option>
+        <option>Conesa</option>
+        <option>Constantí</option>
+        <option>Copons</option>
+        <option>Corbera de Llobregat</option>
+        <option>Corbera d'Ebre</option>
+        <option>Corbins</option>
+        <option>Corçà</option>
+        <option>Cornellà de Llobregat</option>
+        <option>Cornellà del Terri</option>
+        <option>Cornudella de Montsant</option>
+        <option>Creixell</option>
+        <option>Crespià</option>
+        <option>Cruïlles, Monells i Sant Sadurní de l'Heura</option>
+        <option>Cubelles</option>
+        <option>Cubells</option>
+        <option>Cunit</option>
+        <option>Darnius</option>
+        <option>Das</option>
+        <option>Deltebre</option>
+        <option>Dosrius</option>
+        <option>Duesaigües</option>
+        <option>Escala, l'</option>
+        <option>Esparreguera</option>
+        <option>Espinelves</option>
+        <option>Espluga Calba, l'</option>
+        <option>Espluga de Francolí, l'</option>
+        <option>Esplugues de Llobregat</option>
+        <option>Espolla</option>
+        <option>Esponellà</option>
+        <option>Espot</option>
+        <option>Espunyola, l'</option>
+        <option>Esquirol, l'</option>
+        <option>Estamariu</option>
+        <option>Estany, l'</option>
+        <option>Estaràs</option>
+        <option>Esterri d'Àneu</option>
+        <option>Esterri de Cardós</option>
+        <option>Falset</option>
+        <option>Far d'Empordà, el</option>
+        <option>Farrera</option>
+        <option>Fatarella, la</option>
+        <option>Febró, la</option>
+        <option>Figaró-Montmany</option>
+        <option>Fígols</option>
+        <option>Fígols i Alinyà</option>
+        <option>Figuera, la</option>
+        <option>Figueres</option>
+        <option>Figuerola del Camp</option>
+        <option>Flaçà</option>
+        <option>Flix</option>
+        <option>Floresta, la</option>
+        <option>Fogars de la Selva</option>
+        <option>Fogars de Montclús</option>
+        <option>Foixà</option>
+        <option>Folgueroles</option>
+        <option>Fondarella</option>
+        <option>Fonollosa</option>
+        <option>Fontanals de Cerdanya</option>
+        <option>Fontanilles</option>
+        <option>Fontcoberta</option>
+        <option>Font-rubí</option>
+        <option>Foradada</option>
+        <option>Forallac</option>
+        <option>Forès</option>
+        <option>Fornells de la Selva</option>
+        <option>Fortià</option>
+        <option>Franqueses del Vallès, les</option>
+        <option>Freginals</option>
+        <option>Fuliola, la</option>
+        <option>Fulleda</option>
+        <option>Gaià</option>
+        <option>Galera, la</option>
+        <option>Gallifa</option>
+        <option>Gandesa</option>
+        <option>Garcia</option>
+        <option>Garidells, els</option>
+        <option>Garriga, la</option>
+        <option>Garrigàs</option>
+        <option>Garrigoles</option>
+        <option>Garriguella</option>
+        <option>Gavà</option>
+        <option>Gavet de la Conca</option>
+        <option>Gelida</option>
+        <option>Ger</option>
+        <option>Gimenells i el Pla de la Font</option>
+        <option>Ginestar</option>
+        <option>Girona</option>
+        <option>Gironella</option>
+        <option>Gisclareny</option>
+        <option>Godall</option>
+        <option>Golmés</option>
+        <option>Gombrèn</option>
+        <option>Gósol</option>
+        <option>Granada, la</option>
+        <option>Granadella, la</option>
+        <option>Granera</option>
+        <option>Granja d'Escarp, la</option>
+        <option>Granollers</option>
+        <option>Granyanella</option>
+        <option>Granyena de les Garrigues</option>
+        <option>Granyena de Segarra</option>
+        <option>Gratallops</option>
+        <option>Gualba</option>
+        <option>Gualta</option>
+        <option>Guardiola de Berguedà</option>
+        <option>Guiamets, els</option>
+        <option>Guils de Cerdanya</option>
+        <option>Guimerà</option>
+        <option>Guingueta d'Àneu, la</option>
+        <option>Guissona</option>
+        <option>Guixers</option>
+        <option>Gurb</option>
+        <option>Horta de Sant Joan</option>
+        <option>Hospitalet de Llobregat, l'</option>
+        <option>Hostalets de Pierola, els</option>
+        <option>Hostalric</option>
+        <option>Igualada</option>
+        <option>Isona i Conca Dellà</option>
+        <option>Isòvol</option>
+        <option>Ivars de Noguera</option>
+        <option>Ivars d'Urgell</option>
+        <option>Ivorra</option>
+        <option>Jafre</option>
+        <option>Jonquera, la</option>
+        <option>Jorba</option>
+        <option>Josa i Tuixén</option>
+        <option>Juià</option>
+        <option>Juncosa</option>
+        <option>Juneda</option>
+        <option>Les</option>
+        <option>Linyola</option>
+        <option>Llacuna, la</option>
+        <option>Lladó</option>
+        <option>Lladorre</option>
+        <option>Lladurs</option>
+        <option>Llagosta, la</option>
+        <option>Llagostera</option>
+        <option>Llambilles</option>
+        <option>Llanars</option>
+        <option>Llançà</option>
+        <option>Llardecans</option>
+        <option>Llavorsí</option>
+        <option>Lleida</option>
+        <option>Llers</option>
+        <option>Lles de Cerdanya</option>
+        <option>Lliçà d'Amunt</option>
+        <option>Lliçà de Vall</option>
+        <option>Llimiana</option>
+        <option>Llinars del Vallès</option>
+        <option>Llívia</option>
+        <option>Lloar, el</option>
+        <option>Llobera</option>
+        <option>Llorac</option>
+        <option>Llorenç del Penedès</option>
+        <option>Lloret de Mar</option>
+        <option>Llosses, les</option>
+        <option>Lluçà</option>
+        <option>Maçanet de Cabrenys</option>
+        <option>Maçanet de la Selva</option>
+        <option>Madremanya</option>
+        <option>Maià de Montcal</option>
+        <option>Maials</option>
+        <option>Maldà</option>
+        <option>Malgrat de Mar</option>
+        <option>Malla</option>
+        <option>Manlleu</option>
+        <option>Manresa</option>
+        <option>Marçà</option>
+        <option>Margalef</option>
+        <option>Marganell</option>
+        <option>Martorell</option>
+        <option>Martorelles</option>
+        <option>Mas de Barberans</option>
+        <option>Masarac</option>
+        <option>Masdenverge</option>
+        <option>Masies de Roda, les</option>
+        <option>Masies de Voltregà, les</option>
+        <option>Masllorenç</option>
+        <option>Masnou, el</option>
+        <option>Masó, la</option>
+        <option>Maspujols</option>
+        <option>Masquefa</option>
+        <option>Masroig, el</option>
+        <option>Massalcoreig</option>
+        <option>Massanes</option>
+        <option>Massoteres</option>
+        <option>Matadepera</option>
+        <option>Mataró</option>
+        <option>Mediona</option>
+        <option>Menàrguens</option>
+        <option>Meranges</option>
+        <option>Mieres</option>
+        <option>Milà, el</option>
+        <option>Miralcamp</option>
+        <option>Miravet</option>
+        <option>Moià</option>
+        <option>Molar, el</option>
+        <option>Molins de Rei</option>
+        <option>Mollerussa</option>
+        <option>Mollet de Peralada</option>
+        <option>Mollet del Vallès</option>
+        <option>Molló</option>
+        <option>Molsosa, la</option>
+        <option>Monistrol de Calders</option>
+        <option>Monistrol de Montserrat</option>
+        <option>Montagut i Oix</option>
+        <option>Montblanc</option>
+        <option>Montbrió del Camp</option>
+        <option>Montcada i Reixac</option>
+        <option>Montclar</option>
+        <option>Montellà i Martinet</option>
+        <option>Montesquiu</option>
+        <option>Montferrer i Castellbò</option>
+        <option>Montferri</option>
+        <option>Montgai</option>
+        <option>Montgat</option>
+        <option>Montmajor</option>
+        <option>Montmaneu</option>
+        <option>Montmell, el</option>
+        <option>Montmeló</option>
+        <option>Montoliu de Lleida</option>
+        <option>Montoliu de Segarra</option>
+        <option>Montornès de Segarra</option>
+        <option>Montornès del Vallès</option>
+        <option>Mont-ral</option>
+        <option>Mont-ras</option>
+        <option>Mont-roig del Camp</option>
+        <option>Montseny</option>
+        <option>Móra d'Ebre</option>
+        <option>Móra la Nova</option>
+        <option>Morell, el</option>
+        <option>Morera de Montsant, la</option>
+        <option>Muntanyola</option>
+        <option>Mura</option>
+        <option>Nalec</option>
+        <option>Naut Aran</option>
+        <option>Navarcles</option>
+        <option>Navàs</option>
+        <option>Navata</option>
+        <option>Navès</option>
+        <option>No consta</option>
+        <option>Nou de Berguedà, la</option>
+        <option>Nou de Gaià, la</option>
+        <option>Nulles</option>
+        <option>Odèn</option>
+        <option>Òdena</option>
+        <option>Ogassa</option>
+        <option>Olèrdola</option>
+        <option>Olesa de Bonesvalls</option>
+        <option>Olesa de Montserrat</option>
+        <option>Oliana</option>
+        <option>Oliola</option>
+        <option>Olius</option>
+        <option>Olivella</option>
+        <option>Olost</option>
+        <option>Olot</option>
+        <option>Oluges, les</option>
+        <option>Olvan</option>
+        <option>Omellons, els</option>
+        <option>Omells de na Gaia, els</option>
+        <option>Ordis</option>
+        <option>Organyà</option>
+        <option>Orís</option>
+        <option>Oristà</option>
+        <option>Orpí</option>
+        <option>Òrrius</option>
+        <option>Os de Balaguer</option>
+        <option>Osor</option>
+        <option>Ossó de Sió</option>
+        <option>Pacs del Penedès</option>
+        <option>Palafolls</option>
+        <option>Palafrugell</option>
+        <option>Palamós</option>
+        <option>Palau d'Anglesola, el</option>
+        <option>Palau de Santa Eulàlia</option>
+        <option>Palau-sator</option>
+        <option>Palau-saverdera</option>
+        <option>Palau-solità i Plegamans</option>
+        <option>Pallaresos, els</option>
+        <option>Pallejà</option>
+        <option>Palma de Cervelló, la</option>
+        <option>Palma d'Ebre, la</option>
+        <option>Palol de Revardit</option>
+        <option>Pals</option>
+        <option>Papiol, el</option>
+        <option>Pardines</option>
+        <option>Parets del Vallès</option>
+        <option>Parlavà</option>
+        <option>Passanant i Belltall</option>
+        <option>Pau</option>
+        <option>Paüls</option>
+        <option>Pedret i Marzà</option>
+        <option>Penelles</option>
+        <option>Pera, la</option>
+        <option>Perafita</option>
+        <option>Perafort</option>
+        <option>Peralada</option>
+        <option>Peramola</option>
+        <option>Perelló, el</option>
+        <option>Piera</option>
+        <option>Piles, les</option>
+        <option>Pineda de Mar</option>
+        <option>Pinell de Brai, el</option>
+        <option>Pinell de Solsonès</option>
+        <option>Pinós</option>
+        <option>Pira</option>
+        <option>Pla de Santa Maria, el</option>
+        <option>Pla del Penedès, el</option>
+        <option>Planes d'Hostoles, les</option>
+        <option>Planoles</option>
+        <option>Plans de Sió, els</option>
+        <option>Poal, el</option>
+        <option>Pobla de Cérvoles, la</option>
+        <option>Pobla de Claramunt, la</option>
+        <option>Pobla de Lillet, la</option>
+        <option>Pobla de Mafumet, la</option>
+        <option>Pobla de Massaluca, la</option>
+        <option>Pobla de Montornès, la</option>
+        <option>Pobla de Segur, la</option>
+        <option>Poboleda</option>
+        <option>Polinyà</option>
+        <option>Pont d'Armentera, el</option>
+        <option>Pont de Bar, el</option>
+        <option>Pont de Molins</option>
+        <option>Pont de Suert, el</option>
+        <option>Pont de Vilomara i Rocafort, el</option>
+        <option>Pontils</option>
+        <option>Pontons</option>
+        <option>Pontós</option>
+        <option>Ponts</option>
+        <option>Porqueres</option>
+        <option>Porrera</option>
+        <option>Port de la Selva, el</option>
+        <option>Portbou</option>
+        <option>Portella, la</option>
+        <option>Pradell de la Teixeta</option>
+        <option>Prades</option>
+        <option>Prat de Comte</option>
+        <option>Prat de Llobregat, el</option>
+        <option>Pratdip</option>
+        <option>Prats de Lluçanès</option>
+        <option>Prats de Rei, els</option>
+        <option>Prats i Sansor</option>
+        <option>Preixana</option>
+        <option>Preixens</option>
+        <option>Premià de Dalt</option>
+        <option>Premià de Mar</option>
+        <option>Preses, les</option>
+        <option>Prullans</option>
+        <option>Puigcerdà</option>
+        <option>Puigdàlber</option>
+        <option>Puiggròs</option>
+        <option>Puigpelat</option>
+        <option>Puig-reig</option>
+        <option>Puigverd d'Agramunt</option>
+        <option>Puigverd de Lleida</option>
+        <option>Pujalt</option>
+        <option>Quar, la</option>
+        <option>Quart</option>
+        <option>Queralbs</option>
+        <option>Querol</option>
+        <option>Rabós</option>
+        <option>Rajadell</option>
+        <option>Ràpita, la</option>
+        <option>Rasquera</option>
+        <option>Regencós</option>
+        <option>Rellinars</option>
+        <option>Renau</option>
+        <option>Reus</option>
+        <option>Rialp</option>
+        <option>Riba, la</option>
+        <option>Riba-roja d'Ebre</option>
+        <option>Ribera d'Ondara</option>
+        <option>Ribera d'Urgellet</option>
+        <option>Ribes de Freser</option>
+        <option>Riells i Viabrea</option>
+        <option>Riera de Gaià, la</option>
+        <option>Riner</option>
+        <option>Ripoll</option>
+        <option>Ripollet</option>
+        <option>Riu de Cerdanya</option>
+        <option>Riudarenes</option>
+        <option>Riudaura</option>
+        <option>Riudecanyes</option>
+        <option>Riudecols</option>
+        <option>Riudellots de la Selva</option>
+        <option>Riudoms</option>
+        <option>Riumors</option>
+        <option>Roca del Vallès, la</option>
+        <option>Rocafort de Queralt</option>
+        <option>Roda de Berà</option>
+        <option>Roda de Ter</option>
+        <option>Rodonyà</option>
+        <option>Roquetes</option>
+        <option>Roses</option>
+        <option>Rosselló</option>
+        <option>Rourell, el</option>
+        <option>Rubí</option>
+        <option>Rubió</option>
+        <option>Rupià</option>
+        <option>Rupit i Pruit</option>
+        <option>Sabadell</option>
+        <option>Sagàs</option>
+        <option>Salàs de Pallars</option>
+        <option>Saldes</option>
+        <option>Sales de Llierca</option>
+        <option>Sallent</option>
+        <option>Salomó</option>
+        <option>Salou</option>
+        <option>Salt</option>
+        <option>Sanaüja</option>
+        <option>Sant Adrià de Besòs</option>
+        <option>Sant Agustí de Lluçanès</option>
+        <option>Sant Andreu de la Barca</option>
+        <option>Sant Andreu de Llavaneres</option>
+        <option>Sant Andreu Salou</option>
+        <option>Sant Aniol de Finestres</option>
+        <option>Sant Antoni de Vilamajor</option>
+        <option>Sant Bartomeu del Grau</option>
+        <option>Sant Boi de Llobregat</option>
+        <option>Sant Boi de Lluçanès</option>
+        <option>Sant Cebrià de Vallalta</option>
+        <option>Sant Celoni</option>
+        <option>Sant Climent de Llobregat</option>
+        <option>Sant Climent Sescebes</option>
+        <option>Sant Cugat del Vallès</option>
+        <option>Sant Cugat Sesgarrigues</option>
+        <option>Sant Esteve de la Sarga</option>
+        <option>Sant Esteve de Palautordera</option>
+        <option>Sant Esteve Sesrovires</option>
+        <option>Sant Feliu de Buixalleu</option>
+        <option>Sant Feliu de Codines</option>
+        <option>Sant Feliu de Guíxols</option>
+        <option>Sant Feliu de Llobregat</option>
+        <option>Sant Feliu de Pallerols</option>
+        <option>Sant Feliu Sasserra</option>
+        <option>Sant Ferriol</option>
+        <option>Sant Fost de Campsentelles</option>
+        <option>Sant Fruitós de Bages</option>
+        <option>Sant Gregori</option>
+        <option>Sant Guim de Freixenet</option>
+        <option>Sant Guim de la Plana</option>
+        <option>Sant Hilari Sacalm</option>
+        <option>Sant Hipòlit de Voltregà</option>
+        <option>Sant Iscle de Vallalta</option>
+        <option>Sant Jaume de Frontanyà</option>
+        <option>Sant Jaume de Llierca</option>
+        <option>Sant Jaume dels Domenys</option>
+        <option>Sant Jaume d'Enveja</option>
+        <option>Sant Joan de les Abadesses</option>
+        <option>Sant Joan de Mollet</option>
+        <option>Sant Joan de Vilatorrada</option>
+        <option>Sant Joan Despí</option>
+        <option>Sant Joan les Fonts</option>
+        <option>Sant Jordi Desvalls</option>
+        <option>Sant Julià de Cerdanyola</option>
+        <option>Sant Julià de Ramis</option>
+        <option>Sant Julià de Vilatorta</option>
+        <option>Sant Julià del Llor i Bonmatí</option>
+        <option>Sant Just Desvern</option>
+        <option>Sant Llorenç de la Muga</option>
+        <option>Sant Llorenç de Morunys</option>
+        <option>Sant Llorenç d'Hortons</option>
+        <option>Sant Llorenç Savall</option>
+        <option>Sant Martí d'Albars</option>
+        <option>Sant Martí de Centelles</option>
+        <option>Sant Martí de Llémena</option>
+        <option>Sant Martí de Riucorb</option>
+        <option>Sant Martí de Tous</option>
+        <option>Sant Martí Sarroca</option>
+        <option>Sant Martí Sesgueioles</option>
+        <option>Sant Martí Vell</option>
+        <option>Sant Mateu de Bages</option>
+        <option>Sant Miquel de Campmajor</option>
+        <option>Sant Miquel de Fluvià</option>
+        <option>Sant Mori</option>
+        <option>Sant Pau de Segúries</option>
+        <option>Sant Pere de Ribes</option>
+        <option>Sant Pere de Riudebitlles</option>
+        <option>Sant Pere de Torelló</option>
+        <option>Sant Pere de Vilamajor</option>
+        <option>Sant Pere Pescador</option>
+        <option>Sant Pere Sallavinera</option>
+        <option>Sant Pol de Mar</option>
+        <option>Sant Quintí de Mediona</option>
+        <option>Sant Quirze de Besora</option>
+        <option>Sant Quirze del Vallès</option>
+        <option>Sant Quirze Safaja</option>
+        <option>Sant Ramon</option>
+        <option>Sant Sadurní d'Anoia</option>
+        <option>Sant Sadurní d'Osormort</option>
+        <option>Sant Salvador de Guardiola</option>
+        <option>Sant Vicenç de Castellet</option>
+        <option>Sant Vicenç de Montalt</option>
+        <option>Sant Vicenç de Torelló</option>
+        <option>Sant Vicenç dels Horts</option>
+        <option>Santa Bàrbara</option>
+        <option>Santa Cecília de Voltregà</option>
+        <option>Santa Coloma de Cervelló</option>
+        <option>Santa Coloma de Farners</option>
+        <option>Santa Coloma de Gramenet</option>
+        <option>Santa Coloma de Queralt</option>
+        <option>Santa Cristina d'Aro</option>
+        <option>Santa Eugènia de Berga</option>
+        <option>Santa Eulàlia de Riuprimer</option>
+        <option>Santa Eulàlia de Ronçana</option>
+        <option>Santa Fe del Penedès</option>
+        <option>Santa Llogaia d'Àlguema</option>
+        <option>Santa Margarida de Montbui</option>
+        <option>Santa Margarida i els Monjos</option>
+        <option>Santa Maria de Besora</option>
+        <option>Santa Maria de Martorelles</option>
+        <option>Santa Maria de Merlès</option>
+        <option>Santa Maria de Miralles</option>
+        <option>Santa Maria de Palautordera</option>
+        <option>Santa Maria d'Oló</option>
+        <option>Santa Oliva</option>
+        <option>Santa Pau</option>
+        <option>Santa Perpètua de Mogoda</option>
+        <option>Santa Susanna</option>
+        <option>Santpedor</option>
+        <option>Sarral</option>
+        <option>Sarrià de Ter</option>
+        <option>Sarroca de Bellera</option>
+        <option>Sarroca de Lleida</option>
+        <option>Saus, Camallera i Llampaies</option>
+        <option>Savallà del Comtat</option>
+        <option>Secuita, la</option>
+        <option>Selva de Mar, la</option>
+        <option>Selva del Camp, la</option>
+        <option>Senan</option>
+        <option>Sénia, la</option>
+        <option>Senterada</option>
+        <option>Sentiu de Sió, la</option>
+        <option>Sentmenat</option>
+        <option>Serinyà</option>
+        <option>Seròs</option>
+        <option>Serra de Daró</option>
+        <option>Setcases</option>
+        <option>Seu d'Urgell, la</option>
+        <option>Seva</option>
+        <option>Sidamon</option>
+        <option>Sils</option>
+        <option>Sitges</option>
+        <option>Siurana</option>
+        <option>Sobremunt</option>
+        <option>Soleràs, el</option>
+        <option>Solivella</option>
+        <option>Solsona</option>
+        <option>Sora</option>
+        <option>Soriguera</option>
+        <option>Sort</option>
+        <option>Soses</option>
+        <option>Subirats</option>
+        <option>Sudanell</option>
+        <option>Sunyer</option>
+        <option>Súria</option>
+        <option>Susqueda</option>
+        <option>Tagamanent</option>
+        <option>Talamanca</option>
+        <option>Talarn</option>
+        <option>Talavera</option>
+        <option>Tallada d'Empordà, la</option>
+        <option>Taradell</option>
+        <option>Tarragona</option>
+        <option>Tàrrega</option>
+        <option>Tarrés</option>
+        <option>Tarroja de Segarra</option>
+        <option>Tavèrnoles</option>
+        <option>Tavertet</option>
+        <option>Teià</option>
+        <option>Térmens</option>
+        <option>Terrades</option>
+        <option>Terrassa</option>
+        <option>Tiana</option>
+        <option>Tírvia</option>
+        <option>Tiurana</option>
+        <option>Tivenys</option>
+        <option>Tivissa</option>
+        <option>Tona</option>
+        <option>Torà</option>
+        <option>Tordera</option>
+        <option>Torelló</option>
+        <option>Torms, els</option>
+        <option>Tornabous</option>
+        <option>Torre de Cabdella, la</option>
+        <option>Torre de Claramunt, la</option>
+        <option>Torre de Fontaubella, la</option>
+        <option>Torre de l'Espanyol, la</option>
+        <option>Torrebesses</option>
+        <option>Torredembarra</option>
+        <option>Torrefarrera</option>
+        <option>Torrefeta i Florejacs</option>
+        <option>Torregrossa</option>
+        <option>Torrelameu</option>
+        <option>Torrelavit</option>
+        <option>Torrelles de Foix</option>
+        <option>Torrelles de Llobregat</option>
+        <option>Torrent</option>
+        <option>Torres de Segre</option>
+        <option>Torre-serona</option>
+        <option>Torroella de Fluvià</option>
+        <option>Torroella de Montgrí</option>
+        <option>Torroja del Priorat</option>
+        <option>Tortellà</option>
+        <option>Tortosa</option>
+        <option>Toses</option>
+        <option>Tossa de Mar</option>
+        <option>Tremp</option>
+        <option>Ullà</option>
+        <option>Ullastrell</option>
+        <option>Ullastret</option>
+        <option>Ulldecona</option>
+        <option>Ulldemolins</option>
+        <option>Ultramort</option>
+        <option>Urús</option>
+        <option>Vacarisses</option>
+        <option>Vajol, la</option>
+        <option>Vall de Bianya, la</option>
+        <option>Vall de Boí, la</option>
+        <option>Vall de Cardós</option>
+        <option>Vall d'en Bas, la</option>
+        <option>Vallbona d'Anoia</option>
+        <option>Vallbona de les Monges</option>
+        <option>Vallcebre</option>
+        <option>Vallclara</option>
+        <option>Vallfogona de Balaguer</option>
+        <option>Vallfogona de Ripollès</option>
+        <option>Vallfogona de Riucorb</option>
+        <option>Vallgorguina</option>
+        <option>Vallirana</option>
+        <option>Vall-llobrega</option>
+        <option>Vallmoll</option>
+        <option>Vallromanes</option>
+        <option>Valls</option>
+        <option>Valls d'Aguilar, les</option>
+        <option>Valls de Valira, les</option>
+        <option>Vandellòs i l'Hospitalet de l'Infant</option>
+        <option>Vansa i Fórnols, la</option>
+        <option>Veciana</option>
+        <option>Vendrell, el</option>
+        <option>Ventalló</option>
+        <option>Verdú</option>
+        <option>Verges</option>
+        <option>Vespella de Gaià</option>
+        <option>Vic</option>
+        <option>Vidrà</option>
+        <option>Vidreres</option>
+        <option>Vielha e Mijaran</option>
+        <option>Vilabella</option>
+        <option>Vilabertran</option>
+        <option>Vilablareix</option>
+        <option>Vilada</option>
+        <option>Viladamat</option>
+        <option>Viladasens</option>
+        <option>Viladecans</option>
+        <option>Viladecavalls</option>
+        <option>Vilademuls</option>
+        <option>Viladrau</option>
+        <option>Vilafant</option>
+        <option>Vilafranca del Penedès</option>
+        <option>Vilagrassa</option>
+        <option>Vilajuïga</option>
+        <option>Vilalba dels Arcs</option>
+        <option>Vilalba Sasserra</option>
+        <option>Vilaller</option>
+        <option>Vilallonga de Ter</option>
+        <option>Vilallonga del Camp</option>
+        <option>Vilamacolum</option>
+        <option>Vilamalla</option>
+        <option>Vilamaniscle</option>
+        <option>Vilamòs</option>
+        <option>Vilanant</option>
+        <option>Vilanova de Bellpuig</option>
+        <option>Vilanova de la Barca</option>
+        <option>Vilanova de l'Aguda</option>
+        <option>Vilanova de Meià</option>
+        <option>Vilanova de Prades</option>
+        <option>Vilanova de Sau</option>
+        <option>Vilanova de Segrià</option>
+        <option>Vilanova del Camí</option>
+        <option>Vilanova del Vallès</option>
+        <option>Vilanova d'Escornalbou</option>
+        <option>Vilanova i la Geltrú</option>
+        <option>Vilaplana</option>
+        <option>Vila-rodona</option>
+        <option>Vila-sacra</option>
+        <option>Vila-sana</option>
+        <option>Vila-seca</option>
+        <option>Vilassar de Dalt</option>
+        <option>Vilassar de Mar</option>
+        <option>Vilaür</option>
+        <option>Vilaverd</option>
+        <option>Vilella Alta, la</option>
+        <option>Vilella Baixa, la</option>
+        <option>Vilobí del Penedès</option>
+        <option>Vilobí d'Onyar</option>
+        <option>Vilopriu</option>
+        <option>Vilosell, el</option>
+        <option>Vimbodí i Poblet</option>
+        <option>Vinaixa</option>
+        <option>Vinebre</option>
+        <option>Vinyols i els Arcs</option>
+        <option>Viver i Serrateix</option>
+        <option>Xerta</option>
+    </select>
+    <div id="resposta"></div>
+</body>
+
+</html>

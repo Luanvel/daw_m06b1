@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex5</title>
+    <style>
+        body {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #comptador {
+            font-size: 10em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="comptador"></div>
+    <script>
+        /**** Aquest codi no està optimitzat, sinó que s'ha realitzat per ser comprensible per l'alumnat. ****/
+
+        let comptador = 4;
+
+        setTimeout(() => {
+            let ampleFinestra = 200;
+            let altFinestra = 200;
+            let amplePantalla = window.screen.width;
+            let altPantalla = window.screen.height;
+            let color1 = Math.floor(Math.random()*16777215).toString(16);
+            let color2 = Math.floor(Math.random()*16777215).toString(16);
+            let color3 = Math.floor(Math.random()*16777215).toString(16);
+            let color4 = Math.floor(Math.random()*16777215).toString(16);
+            let finestra1 = window.open('', '', `width=${ampleFinestra},height=${altFinestra},top=0,left=0`);
+            let finestra2 = window.open('', '', `width=${ampleFinestra},height=${altFinestra},top=0,left=${amplePantalla - ampleFinestra}`);
+            let finestra3 = window.open('', '', `width=${ampleFinestra},height=${altFinestra},top=${altPantalla - altFinestra},left=0`);
+            let finestra4 = window.open('', '', `width=${ampleFinestra},height=${altFinestra},top=${altPantalla - altFinestra},left=${amplePantalla - ampleFinestra}`);
+            finestra1.document.body.style.backgroundColor = "#" + color1;
+            finestra2.document.body.style.backgroundColor = "#" + color2;
+            finestra3.document.body.style.backgroundColor = "#" + color3;
+            finestra4.document.body.style.backgroundColor = "#" + color4;
+        }, 5000);
+
+        let interval = setInterval(()=> {
+            document.getElementById('comptador').innerHTML = comptador;
+            comptador--;
+
+            if (comptador < 0) {
+                clearInterval(interval);
+            }
+        }, 1000)
+    </script>
+    
+</body>
+</html>

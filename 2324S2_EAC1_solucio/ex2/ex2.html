@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex2</title>
+</head>
+<body>
+    <script>
+        /**** Aquest codi no està optimitzat, sinó que s'ha realitzat per ser comprensible per l'alumnat. ****/
+
+        const percentatgeActivitats = 0.4;
+        const percentatgeExamen = 0.5;
+        const percentatgePortafolis = 0.1;
+        let notaActivitats = 0;
+        let notaExamen = 0;
+        let notaPortafolis = 0;
+        let notaMitjana = 0;
+        let missatgeApte= "NO APTE";
+
+        do {
+            notaActivitats = parseFloat(prompt("Introdueix la nota de les activitats (0-10):"));
+        } while (notaActivitats < 0 || notaActivitats > 10 || isNaN(notaActivitats));
+
+        do {
+            notaExamen = parseFloat(prompt("Introdueix la nota de l'examen (0-10):"));
+        } while (notaExamen < 0 || notaExamen > 10 || isNaN(notaExamen));
+
+        do {
+            notaPortafolis = parseFloat(prompt("Introdueix la nota del portafolis (0-10):"));
+        } while (notaPortafolis < 0 || notaPortafolis > 10 || isNaN(notaPortafolis));
+
+        if (notaExamen < 4 || notaActivitats < 4) {
+            missatgeApte = "NO APTE";
+            notaMitjana = "No s'ha pogut calcular la nota mitjana perquè l'alumne no ha arribat als mínims.";
+        } else {
+            notaMitjana = (notaActivitats * percentatgeActivitats) + (notaExamen * percentatgeExamen) + (notaPortafolis * percentatgePortafolis);
+            if (notaMitjana >= 5) {
+                missatgeApte = "APTE";
+            } else {
+                missatgeApte = "NO APTE";
+            }
+        }
+
+        document.write("L'alumne és: " + missatgeApte + "<br>");
+        document.write("La nota de les activitats és: " + notaActivitats + "<br>");
+        document.write("La nota de l'examen és: " + notaExamen + "<br>");
+        document.write("La nota del portafolis és: " + notaPortafolis + "<br>");
+        document.write("La nota mitjana és: " + notaMitjana);
+        
+
+    </script>
+</body>
+</html>

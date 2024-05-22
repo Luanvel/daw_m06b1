@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercici 3</title>
+</head>
+<body>
+    <script>
+       let dies;
+       let dataActual = new Date();
+       // Li resto 1 perquè l'enunciat demana no comptar la data d'avui
+       dataActual.setDate(dataActual.getDate() - 1);
+       let arrayDiesTemperatures = [];
+       
+       do {
+           dies = prompt("Introdueix el nombre de dies anteriors a la data actual");
+       } while (isNaN(dies) || dies < 1);
+
+
+       let dataTmp = new Date(dataActual);
+       // Contrueixo l'array de dies
+       for (let i=0; i<dies; i++) {
+            dataTmp.setDate(dataActual.getDate() - i);
+
+            // Mostra la nova data en el format "DD/MM/AAAA"
+            var dia = dataTmp.getDate();
+            var mes = dataTmp.getMonth() + 1; // S'afegeix 1 ja que els mesos comencen a partir de zero
+            var any = dataTmp.getFullYear();
+
+            // Formata la data per assegurar-se que tingui dues xifres per dia i mes
+            if (dia < 10) {
+                dia = '0' + dia;
+            }
+            if (mes < 10) {
+                mes = '0' + mes;
+            }
+            arrayDiesTemperatures[i] = [];
+            arrayDiesTemperatures[i][0] = dia + "/" + mes + "/" + any;
+            arrayDiesTemperatures[i][1] = null;
+       }
+
+       // Inverteixo l'array per veure els dies en ordre (de més antic a més nou)
+       arrayDiesTemperatures.reverse();
+
+       // Contrueixo l'array de temperatures
+       for (let i=0; i<dies; i++) {
+           do {
+            arrayDiesTemperatures[i][1] = prompt("Introdueix la temperatura mitjana del dia " + arrayDiesTemperatures[i][0]);
+           } while (isNaN(arrayDiesTemperatures[i][1]));
+       }
+
+       console.log(arrayDiesTemperatures);
+
+        // Mostra la temperatura mitjana
+        let mitjana = 0;
+        for (let i=0; i<arrayDiesTemperatures.length; i++) {
+            mitjana += parseInt(arrayDiesTemperatures[i][1]);
+        }
+        mitjana = mitjana / arrayDiesTemperatures.length;
+        console.log("La temperatura mitjana és " + mitjana);
+
+        // Busco la temperatura mínima i màxima
+        let min = Number.MAX_VALUE;
+        let max = Number.MIN_VALUE;
+        for (let i=0; i<arrayDiesTemperatures.length; i++) {
+            if (arrayDiesTemperatures[i][1] < min) {
+                min = arrayDiesTemperatures[i][1];
+            }
+            if (arrayDiesTemperatures[i][1] > max) {
+                max = arrayDiesTemperatures[i][1];
+            }
+        }
+        console.log("La temperatura mínima és " + min);
+        console.log("La temperatura màxima és " + max);
+
+        // Mostro els resultats en una taula HTML
+        document.write("<table border='1'>");
+        document.write("<tr><th>Dia</th><th>Temperatura</th></tr>");
+        for (let i=0; i<arrayDiesTemperatures.length; i++) {
+            document.write("<tr><td>" + arrayDiesTemperatures[i][0] + "</td><td>" + arrayDiesTemperatures[i][1] + "</td></tr>");
+        }
+        document.write("</table>");
+        document.write("<p>La temperatura mitjana és " + mitjana + "</p>");
+        document.write("<p>La temperatura mínima és " + min + "</p>");
+        document.write("<p>La temperatura màxima és " + max + "</p>");
+    </script>
+</body>
+</html>

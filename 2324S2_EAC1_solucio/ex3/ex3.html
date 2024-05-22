@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex3</title>
+</head>
+
+<body>
+    <script>
+        /**** Aquest codi no està optimitzat, sinó que s'ha realitzat per ser comprensible per l'alumnat. ****/
+
+        
+        let numNotes = 0;
+
+        // Demana a l'usuari el nombre de notes
+        do {
+            numNotes = parseInt(prompt("Quantes notes vols introduir?"));
+        } while (numNotes < 1 || isNaN(numNotes));
+
+        // Inicialitza la suma de les notes
+        let sumNotes = 0;
+
+        // Demana a l'usuari cada una de les notes i les suma
+        for (let i = 0; i < numNotes; i++) {
+            let nota = -1;
+            do {
+                nota = parseFloat(prompt(`Introdueix la nota ${i + 1}`));
+            } while (nota < 0 || nota > 10 || isNaN(nota));
+            sumNotes += nota;
+        }
+
+        // Calcula la mitjana de les notes
+        let mitjana = sumNotes / numNotes;
+
+        // Assigna color en funció de la mitjana
+        let color = "yellow";
+
+        if (mitjana < 5) {
+            color = "red";
+        } else if (mitjana >= 5 && mitjana < 7) {
+            color = "blue";
+        } else if (mitjana >= 7 && mitjana < 9) {
+            color = "green";
+        } else {
+            color = "yellow";
+        }
+
+        // Imprimeix la mitjana a la pantalla
+        document.write(`La mitjana de les notes és <span style="color: ${color}"> ${mitjana}</span>`);
+
+    </script>
+</body>
+
+</html>

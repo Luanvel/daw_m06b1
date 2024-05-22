@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex4</title>
+</head>
+
+<body>
+    <label for="data">Data:</label><br>
+    <input type="text" id="data"><br><br>
+    <button onclick="diaDeLaSetmana()">Calcula</button>
+
+    <script>
+        /**** Aquest codi no està optimitzat, sinó que s'ha realitzat per ser comprensible per l'alumnat. ****/
+
+        function diaDeLaSetmana() {
+            let data = document.getElementById('data').value;
+
+            let regEx = /^\d{2}\/\d{2}\/\d{4}$/;
+            if (!regEx.test(data)) {
+                alert("El format de la data no compleix el requisit de dd/mm/yyyy");
+                return;
+            }
+
+            const fragments = data.split('/');
+            const dia = parseInt(fragments[0], 10);
+            const mes = parseInt(fragments[1], 10) - 1; // Els mesos amb JavaScript van de 0 a 11
+            const any = parseInt(fragments[2], 10);
+
+            const dataObj = new Date(any, mes, dia);
+            const dies = ['Diumenge', 'Dilluns', 'Dimarts', 'Dimecres', 'Dijous', 'Divendres', 'Dissabte'];
+
+            alert(dies[dataObj.getDay()]);
+        }
+
+    </script>
+</body>
+
+</html>

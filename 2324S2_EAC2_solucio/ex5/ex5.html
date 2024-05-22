@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex5</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.1vw;
+        }
+
+        body {
+            padding: 2%;
+        }
+    </style>
+</head>
+<body onload="mostrar()">
+    <label for="client">Escriu el nom i cognoms del client</label>
+    <input type="text" name="client" id="client">
+    <label for="dni">Escriu el DNI del client</label>
+    <input type="text" name="dni" id="dni">
+    <button onclick="afegir()">Afegir</button>
+    <hr>
+    <label for="deleteDNI">Escriu el DNI del client a eliminar</label>
+    <input type="text" name="deleteDNI" id="deleteDNI">
+    <button onclick="eliminar()">Eliminar</button>
+    <hr>
+    <button onclick="ordenarNom()">Ordenar per nom de client</button>
+    <button onclick="ordenarDNI()">Ordenar per DNI de client</button>
+    <hr>
+    <div id="llistatClients"></div>
+
+    <script src="ex5.js"></script>
+</body>
+</html>
